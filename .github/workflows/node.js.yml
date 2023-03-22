@@ -1,11 +1,11 @@
 name: CI
 
 on:
-# События, которые запускают
-push:
-  branches: [ "main" ]
-pull_request:
-  branches: [ "main" ]
+  # События, которые запускают
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 # jobs запускаются параллельно, если не указана последовательность
 jobs:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Actions от github: проверяет репозитори , гит и т.д.
-      - uses: actions checkout@v3
+      - uses: actions/checkout@v3
       
       # Устанавливаем все необходимые зависимости и запускаем тесты 
       - name: npm install, test and build
@@ -32,6 +32,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-      name: Run JS file for test
-      run: node js/script.js
+      - name: Run JS file for test
+        run: node js/script.js
       
